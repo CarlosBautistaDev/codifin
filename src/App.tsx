@@ -3,18 +3,15 @@ import ProductList from './screens/ProductList';
 import HomePage from './screens/HomePage';
 import GlobalStyle from './components/GlobalStyle';
 import NavBar from './components/Navbar/Navbar';
-import { Product, ProductProvider } from './context/ProductContext';
-import { useState } from 'react';
+import { ProductProvider } from './context/ProductContext';
 import ProductForm from './screens/ProductForm';
 import ProductDetails from './screens/ProductDetails';
 
 function App() {
-  const [products, setProducts] = useState<Product[]>([]);
-
   return (
     <Router>
       <GlobalStyle />
-      <ProductProvider value={{ products, setProducts }}>
+      <ProductProvider>
         <NavBar />
         <Routes>
           <Route path="/products/new" element={<ProductForm />} />
